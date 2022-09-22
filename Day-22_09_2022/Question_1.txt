@@ -1,0 +1,39 @@
+// QUESTION-1:  
+// Write a program to accept a number from the user and check if a given number is palindrome or not.
+
+import java.util.*;
+public class Ques1 
+{
+	public static void main(String[] args) 
+	{		
+		palin();	// function call
+	}
+	public static void palin()	// function definition 
+	{
+		System.out.println("... check if number is palindrome or not ...");
+		Scanner s = new Scanner(System.in);
+		int num;
+		System.out.println("Enter Number:");	// take number from user
+		num = s.nextInt();
+		
+		int rev=0, temp=num, rem;
+		
+		// actual palindrome logic 
+		while(temp>0)
+		{
+			rem = temp % 10;
+			rev = rev *10 + rem;
+			temp = temp / 10;
+		}
+		
+		// now check reverse num and the entered num are same or not then it is said to be palindrome 
+		if(rev == num)
+		{
+			System.out.println("\t entered number IS PALINDROME");
+		}
+		else
+		{
+			System.out.println("\t entered number IS NOT PALINDROME");
+		}
+	}
+}
