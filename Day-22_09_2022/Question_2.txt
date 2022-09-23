@@ -1,16 +1,16 @@
 /* QUESTION - 2:
  Write a program to accept choice from user and perform the operation:
- 1: factorial
- 2: sum of digit
+ 1: Factorial
+ 2: Sum of digit
  3: Armstrong number or not
- 4: fibonacci series
- 5: prime no or Not */
+ 4: Fibonacci series
+ 5: Prime no or Not */
 
 import java.util.*;
 
 public class Ques2 
 {
-	public static void main(String[] args) 
+	public static void main(String[] args)	// main function
 	{
 		
 		int ch;
