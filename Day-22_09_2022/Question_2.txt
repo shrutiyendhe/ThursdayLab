@@ -1,0 +1,160 @@
+/* QUESTION - 2:
+ Write a program to accept choice from user and perform the operation:
+ 1: factorial
+ 2: sum of digit
+ 3: Armstrong number or not
+ 4: fibonacci series
+ 5: prime no or Not */
+
+import java.util.*;
+
+public class Ques2 
+{
+	public static void main(String[] args) 
+	{
+		
+		int ch;
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" 1: Factorial \n 2: Sum_of_Digit \n 3: Armstrong_Number \n 4: Fibonacci_Series \n 5: Prime_Number ");
+		System.out.println(" enter choice to perform operation :");
+		ch = sc.nextInt();
+	
+		switch(ch)
+		{
+		case 1:
+			factorial();	// for factorial operation-function call
+			break;
+		case 2:
+			sum_of_digit();	// for sum of digit operation-function call
+			break;
+		case 3:
+			armstrong();	// for amrstrong operation-function call
+			break;
+		case 4:
+			fibonacci();	// for fibonacci series operation-function call
+			break;
+		case 5:
+			prime();	// for prime number operation-function call
+			break;
+		}
+
+	}
+	
+	public static void factorial()	// for factorial operation-function definition
+	{
+		System.out.println("..Factorial Operation..");
+		Scanner s = new Scanner(System.in);
+		int n, fact=1, i;
+		System.out.println(" Enter number : ");
+		n = s.nextInt();
+		
+		// factorial logic 
+		for(i=1; i<=n; i++)
+		{
+			fact = fact * i;
+		}
+		System.out.println("Factorial of number is : " +fact);
+	}
+
+	public static void sum_of_digit()	// for sum of digit operation-function definition
+	{
+		System.out.println("..Sum of Digits..");
+		Scanner s = new Scanner(System.in);
+		int num, digit, sum=0;
+		System.out.println(" Enter number : ");
+		num = s.nextInt();
+		
+		// logic for sum of digits
+		while(num>0)
+		{
+			digit = num % 10;
+			sum = sum + digit;
+			num = num/ 10;
+		}
+		System.out.println("Sum of Digits of number is :" +sum);	
+	}
+	
+	public static void armstrong()	// for armstrong operation-function definition
+	{
+		System.out.println("... Armstrong Operation ...");
+		Scanner s = new Scanner(System.in);
+		int number;
+		System.out.println("Enter Number:");	
+		number = s.nextInt();
+		
+		int ans=0, temp=number, rem ;
+		
+		// actual armstrong logic 
+		while(temp>0)
+		{
+			rem = temp % 10;
+			ans = ans + rem * rem * rem;
+			temp = temp / 10;
+		}
+		
+		// now check number is armstrong or not 
+		if(ans == number)
+		{
+			System.out.println("\t entered number IS ARMSTRONG");
+		}
+		else
+		{
+			System.out.println("\t entered number IS NOT ARMSTRONG");
+		}	
+	}
+	
+	public static void fibonacci()	// for fibonacci series operation-function definition
+	{	
+		System.out.println("... Fibnonacci Operation ...");
+		int number, first = 0, second = 1, val;
+		Scanner s1 = new Scanner(System.in);		
+		System.out.println("Enter the digit of series");
+		number = s1.nextInt();
+		
+		// fibonacci series logic
+			while(number-2>0)
+				{
+					val = first + second;
+					System.out.print(val+"\t");
+					first = second;
+					second = val;
+					number--;
+				}
+		// printing numbers
+			System.out.print(first+"\t"+second+"\t");
+	}
+	
+	public static void prime()	// for prime number operation-function definition
+	{
+		int i,n;
+		boolean val= true;
+		Scanner scan=new Scanner(System.in);  	
+								
+		System.out.println(" enter the number : ");
+		n=scan.nextInt();
+
+    // As we know 0, 1 and negative number  are not prime numbers
+		// actual logic to check prime number
+    if(n < 2)
+    {
+        val = false;
+    }
+    else
+    {
+    // running loop till n is wasteful because for any number n the numbers in
+    // the range(n/2 + 1, n) won't be divisible anyways.
+        for(i=2; i <= n/2; i++)
+        {
+            if(n % i == 0)
+            {
+                val = false;
+                break;
+            }
+        }
+    }
+    // printing result 
+    String result = val ? " Prime" : "not Prime";	// using ternary operator logic
+    System.out.println ("The entered number " + n + " is : " + result);
+		}
+	
+}
