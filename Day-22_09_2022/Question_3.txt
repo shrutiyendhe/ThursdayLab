@@ -1,0 +1,132 @@
+/*Question-3:
+WAP to Create a menu for food counter and accept the items from user and 
+display the final Bill amount with the item is ordered */
+
+import java.util.*; 								
+public class Ques3 								
+{
+
+	public static void main(String[] args)			// Main function
+	{
+		System.out.println("... Welcome ...");
+		
+		int menu_item,menu1,item_price=0,quantity=0;
+		  char ans;		  
+		  String item_name="";							// adding order list to string item_name
+		  Scanner sc=new Scanner(System.in);		
+		  //using do while loop
+		  do
+		  {
+			  System.out.println("Please order....");
+				System.out.println(" Menu:\n 1 : STARTERS \n 2 : MAIN COURSE \n 3 : DESERTS ");
+				// nextInt is used to scan next word of input as integer
+				menu_item=sc.nextInt();					
+				// to get users choice switch case is used
+				switch(menu_item)
+				{
+					case 1:
+						System.out.println(".. STARTERS MENU..");
+						System.out.println(" 1: Masala Papad \t 50");
+						System.out.println(" 2: Soup \t\t 250");
+						System.out.println(" 3: Spring Rolls \t 150");
+						menu1=sc.nextInt();						
+						System.out.println("Enter quantity of selected food : ");
+						quantity=sc.nextInt();							
+						
+						//multiply food price with quantity that user selects
+						//using switch case to get sub choice
+						switch(menu1)
+						{
+							case 1:
+								item_price+=50*quantity;					
+								item_name+="\n Masala Papad ";
+								break;
+				
+							case 2:
+									item_price+=250*quantity;						
+									item_name+="\n Soup ";
+									break;
+				
+							case 3:
+									item_price+=150*quantity;					
+									item_name+="\n Spring Rolls ";
+									break;
+							default:
+								System.out.println("Invalid choice");	//when user enters invalid number 
+						}
+						break;
+					case 2:
+						System.out.println(".. MAIN COURSE MENU ..");
+						System.out.println(" 1: Palak Paneer \t\t 300");
+						System.out.println(" 2: Butter Chicken	\t 450");
+						System.out.println(" 3: Marrakesh Vegetarian curry \t 480");
+						menu1=sc.nextInt();				
+						System.out.println("Enter quantity");
+						quantity=sc.nextInt();							
+						//multiply food price with quantity that user selects
+						//using switch case to get sub choice
+						switch(menu1)
+						{
+							case 1:
+								item_price+=300*quantity;						
+								item_name+="\n Palak Panner";
+								break;
+				
+							case 2:
+								item_price+=450*quantity;											
+								item_name+="\n Butter Chicken ";
+								break;
+				
+							case 3:
+								item_price+=480*quantity;							
+								item_name+="\n Marrakesh Vegetarian curry";
+								break;
+							default:
+								System.out.println("Invalid choice"); 
+						}
+						break;
+					case 3:
+						System.out.println(".. DESERTS MENU ..");
+						System.out.println("1: Cupcake \t\t 70");
+						System.out.println("2: Fruit Jucie \t\t 90");
+						System.out.println("3: Vanilla ice cream \t 85.");
+						menu1=sc.nextInt();						
+						System.out.println("Enter quantity");
+						quantity=sc.nextInt();							
+						
+						//multiply food price with quantity that user selects
+						//using switch case to get sub choice
+						switch(menu1)
+						{
+							case 1:
+								item_price+=70*quantity;							
+								item_name+="\n Cupcake";
+								break;
+				
+							case 2:
+								item_price+=90*quantity;								
+								item_name+="\n Fruit Juice";
+								break;
+				
+							case 3:
+								item_price+=85*quantity;									
+								item_name+="\n Vanilla ice cream";
+								break;
+								
+							default:
+								System.out.println("Invalid choice");
+						}
+						break;
+				}
+		   System.out.println("Do you want to order any another dish y/n");
+		   ans=sc.next().charAt(0);	//next() function returns the next word in input as string and charAt(0) function returns the first character in that string.
+		  }
+		  while(ans=='Y'||ans=='y');
+			
+		  	System.out.println("\t \t ...Thank You ...");
+		  	System.out.println("Oredered Food Items are : \t\n"+item_name); //Prints ordered food item which user has choosed
+		  	System.out.println("The Total bill amount is : \t"+item_price); //prints total bill of ordered food items
+		  	System.out.println("\t \t ...Visit Again ...");
+	}
+
+}
