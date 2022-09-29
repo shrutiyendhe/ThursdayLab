@@ -1,0 +1,54 @@
+/*
+	Lab QUESTION 6 : 
+		WAP to display prime no between 1 to 150 in two dimension array
+*/
+
+import java.util.*;
+public class que_6 
+{
+	public static void main(String[] args) // main method
+	{
+		int rows, cols, remainder;
+	    boolean isPrime = true;
+
+	    Scanner sc = new Scanner(System.in);
+
+	    System.out.println("Enter number of row and colums : ");
+	    rows = sc.nextInt();
+	    cols = sc.nextInt();
+
+	    int[][] m = new int[rows][cols];
+
+	    System.out.println("Enter elements in the 2-D array");
+
+	    for (int i = 0; i < m.length; i++)
+	    {
+	        for (int j = 0; j <m.length; j++) 
+	        {
+	            m[i][j] = sc.nextInt();
+	        }
+	    }
+	    
+	    // check elements of array are prime or not 
+	    for (int i = 0; i < m.length; i++)
+	    {
+	    	for (int j = 0; j < m.length; j++)
+	    	{
+	    		for (int k = 2; k <= m[i][j] / 2; k++) 
+	    		{
+	                    remainder = m[i][j] % k;
+	                    if (remainder == 0) 
+	                    {
+	                        isPrime = false;
+	                        break;
+	                    }
+	            }
+	    		if (isPrime)
+	    		{
+	                    System.out.println(m[i][j] + " is a Prime number");
+	            } else
+	                    System.out.println(m[i][j] + " is not a Prime number");
+	        }
+	    }
+	}
+}
