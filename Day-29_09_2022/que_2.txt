@@ -1,0 +1,30 @@
+/*
+	Lab QUESTION 2 : 
+		Write a program to calculate HCF of two given number.
+*/
+
+import java.util.*;
+public class que_2 
+{
+	public static void main(String[] args) // main method
+	{
+		Scanner sc=new Scanner(System.in);
+		int n1,n2,hcf=0,i;
+		System.out.println("Find Highest Common Factor");
+		// take numbers from user
+		System.out.print("\n Enter first number: ");       
+		n1=sc.nextInt(); 
+		
+		System.out.print("\n Enter second number: ");       
+		n2=sc.nextInt(); 
+		
+		for(i=1;i<=n1 || i<=n2;i++)	// loop will work till values of n1 or n2
+		{
+			if(n1%i==0 && n2%i == 0)	// logic for hcf 
+				{
+					hcf=i;
+				}
+		}
+		System.out.println("HCF of " +n1+ " and " +n2+ " is : "+hcf);
+	}
+}
