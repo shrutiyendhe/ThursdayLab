@@ -1,1 +1,37 @@
+/*
+ 	Lab QUESTION_1 : 
+	 	Write a program to accept a number from user and then prints the sum of the even and odd integers
+ */
 
+import java.util.*;
+public class que_1 
+{
+	public static void main(String[] args)	// main method
+	{
+		int num,sum_e=0,sum_o=0;	
+		char ans;
+		Scanner sc=new Scanner(System.in);
+		
+		do	// loop if user wants more numbers to be entered 
+		{
+			System.out.println("Enter Number : ");
+			num=sc.nextInt();
+			if(num%2==0)	// check number is even or not
+			{
+				sum_e = sum_e + num;	//add all entered even numbers
+			}
+			else	// for odd number 
+			{
+				sum_o = sum_o + num;	// add all entered odd numbers
+			}
+			
+			System.out.println("Do you want to enter another number....y/n");	
+			ans=sc.next().charAt(0);
+		}
+		while(ans=='Y'||ans=='y');	// do loop works till ans==y or ans==Y
+		
+		// print sum
+		System.out.println("Sum of Even Numbers : "+sum_e);
+		System.out.println("Sum of Odd Numbers : "+sum_o);
+	}
+}
