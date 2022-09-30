@@ -4,51 +4,67 @@
 */
 
 import java.util.*;
-public class que_6 
+
+public class que_6_prime
 {
-	public static void main(String[] args) // main method
+	boolean isPrime(int n)	// Function to check a number is prime or not
 	{
-		int rows, cols, remainder;
-	    boolean isPrime = true;
+		int c = 0;
+		for(int i = 1; i<=n; i++)
+		{
+			if(n%i == 0)
+				c++;
+		}
+		if(c == 2)
+			return true;
+		else
+			return false;
+	}
 
-	    Scanner sc = new Scanner(System.in);
+	public static void main(String args[])
+	{
+		que_6_prime ob = new que_6_prime();	// create object 
 
-	    System.out.println("Enter number of row and colums : ");
-	    rows = sc.nextInt();
-	    cols = sc.nextInt();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the number of rows : ");	
+		int m=sc.nextInt();
+		System.out.print("Enter the number of columns : ");
+		int n=sc.nextInt();
 
-	    int[][] m = new int[rows][cols];
+		int arr2[][]=new int[m][n];	// 2D array to store 'm*n' prime numbers
+		int arr1[] = new int [m*n];	// 1D array to store 'm*n' prime numbers
 
-	    System.out.println("Enter elements in the 2-D array");
+		int i = 0, k = 1, j;	// for natural numbers 
+		while(i < m*n)	// loop for 1D array
+		{
+			if(ob.isPrime(k)==true)
+			{
+				arr1[i] = k;
+				i++;
+			}
+			k++;
+		}
 
-	    for (int i = 0; i < m.length; i++)
-	    {
-	        for (int j = 0; j <m.length; j++) 
-	        {
-	            m[i][j] = sc.nextInt();
-	        }
-	    }
-	    
-	    // check elements of array are prime or not 
-	    for (int i = 0; i < m.length; i++)
-	    {
-	    	for (int j = 0; j < m.length; j++)
-	    	{
-	    		for (int k = 2; k <= m[i][j] / 2; k++) 
-	    		{
-	                    remainder = m[i][j] % k;
-	                    if (remainder == 0) 
-	                    {
-	                        isPrime = false;
-	                        break;
-	                    }
-	            }
-	    		if (isPrime)
-	    		{
-	                    System.out.println(m[i][j] + " is a Prime number");
-	            } else
-	                    System.out.println(m[i][j] + " is not a Prime number");
-	        }
-	    }
+		// for 2D Array
+		int x = 0;
+		for(i=0; i<m; i++)
+		{
+			for(j=0; j<n; j++)
+			{
+				arr2[i][j] = arr1[x];
+				x++;
+			}
+		}
+
+		System.out.println("The Final Array is : ");	// print prime numbers results in 2D Array.
+		for(i=0; i<m; i++)	//loop for row
+		{
+			for(j=0; j<n; j++)	//loop for column
+			{
+				System.out.print(arr2[i][j]+"\t");
+			}
+			System.out.println();
+		}
 	}
 }
