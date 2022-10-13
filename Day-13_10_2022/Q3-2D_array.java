@@ -17,8 +17,6 @@ public class change_array
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in);
-		//int[][] arr = { {10, 20, 30}, {40, 50, 60} };
-		
 		System.out.println("Enter number of rows and columns : ");  // this defines size of 2D array
 	    int rows = sc.nextInt();
 	    int cols = sc.nextInt();
