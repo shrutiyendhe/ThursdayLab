@@ -1,0 +1,111 @@
+/*
+  Lab Q1: WAP to create  ATM  where customer enter our details ,pin and withdrawal cash or deposit cash.
+          In this program you have to use encapculation for hinding user details and inheritance,polymorphism and interface.
+*/
+
+package Thursday_lab;
+
+public interface data   // interface
+{
+	public void user_data(); 
+}
+
+-------------------------------------
+
+package Thursday_lab;
+import java.util.*;
+public class proc implements data{
+	private int pass=2468;
+	private int ac_bal=1500;
+	//encapsulation has getter setter methods that are used to access private variables in other class
+	// users password or pin
+	public int getPass() {  //encapsulation 
+		return pass;
+	}
+	public void setPass(int ps) { //encapsulation 
+		this.pass = ps;
+	}
+	// amount credit process
+	public int getAc_balcr() {  //encapsulation 
+		return ac_bal;
+	}
+	public void setAc_balcr(int bl) {   //encapsulation 
+		this.ac_bal += bl;
+	}
+	// amount debit  process
+	public int getAc_baldb() {    //encapsulation 
+		return ac_bal;
+	}
+	public void setAc_baldb(int bl) {   //encapsulation 
+		this.ac_bal -= bl;
+	}
+	@Override
+	public void user_data() {   //interface method is override in main function- polymorphism
+		// TODO Auto-generated method stub
+		System.out.println("Banking process");
+	}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+package Thursday_lab;
+import java.util.*;
+
+public class bank extends proc  { //inheritance
+	static 	Scanner sc = new Scanner(System.in);
+	public void user_data()   //interface method is override in main function- polymorphism
+	{
+		String u_name;
+		char ans;
+		int u_pass, u_bal, balance = 0, ch;
+		proc obj = new proc();
+		System.out.println("Enter User name ");
+		u_name=sc.next();
+		System.out.println("Enter Account Password");
+		u_pass=sc.nextInt();
+		obj.getPass();
+		//if block to check password
+		if(obj.getPass()==u_pass) {
+			System.out.println("hello... welcome... " +u_name);
+			do{
+				System.out.println("\n Select your choice \n\t 1. Deposit Cash(credit) \n\t 2. Withdrawal Cash(debit)");
+				ch=sc.nextInt();
+				//switch case choice for credit or debit method
+				switch (ch) {
+					case 1:
+						System.out.println("Enter Amount to Deposit");
+						balance=sc.nextInt();
+						obj.setAc_balcr(balance);
+						System.out.println("Current Account balance is Rs."+obj.getAc_balcr());
+						break;
+					case 2:
+						System.out.println("Enter Amount to Withdrawal");
+						balance=sc.nextInt();
+						obj.setAc_baldb(balance);
+						if (obj.getAc_baldb()>=0) {
+							System.out.println("The Account balance is Rs."+obj.getAc_baldb());
+						}
+						else {
+							System.out.println("this Account doesn't have Sufficient amount to Withdraw");
+						}
+						break;
+
+					default:
+						System.out.println("Enter Valid choice");
+						break;
+				}
+				System.out.println("Do you want to continue transaction? y/n");
+				ans=sc.next().charAt(0);
+			}
+			while(ans=='Y'||ans=='y');
+			}
+			else {
+				System.out.println("wrong Password entered! \n try again!");
+			}
+		}
+	public static void main(String[] args) 
+	{
+		bank ob=new bank();
+		ob.user_data();
+	}
+}
