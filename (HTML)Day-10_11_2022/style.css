@@ -1,0 +1,39 @@
+.header {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(181, 248, 137);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(3, 3, 3);
+    font-size: 15px;
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
